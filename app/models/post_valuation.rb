@@ -1,0 +1,2 @@
+class PostValuation < ApplicationRecord
+end
