@@ -34,6 +34,8 @@ group :development, :test do
   # rubocopを導入
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
+  # pry-byebugを導入
+  gem "pry-byebug"
 end
 
 group :development do
