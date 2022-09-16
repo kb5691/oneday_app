@@ -45,3 +45,11 @@ Style/SymbolArray:
 Rails/FilePath:
   Exclude:
     - 'config/environments/development.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/environments/development.rb'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/20220911112952_devise_create_users.rb'
