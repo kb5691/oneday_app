@@ -34,5 +34,10 @@ module OnedayApp
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # 日本語化の設定
+    config.i18n.default_locale = :ja
+    # タイムゾーンを日本時間に変更
+    config.time_zone = "Asia/Tokyo"
   end
 end
