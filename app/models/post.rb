@@ -10,6 +10,8 @@ class Post < ApplicationRecord
   # title, recommend_pointを入力必須にする
   validates :title, presence: true
   validates :recommend_point, presence: true
+  # 画像投稿機能のImageUploaderとpostsテーブルのreccomentd_imageカラムを連携
+  mount_uploader :recommend_image, ImageUploader
 
   # postをuserが「いいね」しているときはtrue, 「いいね」していないときはfalse
   def liked_by?(user)
