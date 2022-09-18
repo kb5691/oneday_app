@@ -1,6 +1,8 @@
 class Post < ApplicationRecord
   # postは1人のユーザーに属する
   belongs_to :user
+  # postは1つのpost_valuationを持つように設定し、postが削除されたらpost_valuationも削除される
+  belongs_to :post_valuations, dependent: :destroy
   # postが複数のlikeを持つように設定し、postが削除されたらlikeも削除される
   has_many :likes, dependent: :destroy
   # postが複数のcommentを持つように設定し、postが削除されたらcommentも削除される
@@ -10,6 +12,8 @@ class Post < ApplicationRecord
   # title, recommend_pointを入力必須にする
   validates :title, presence: true
   validates :recommend_point, presence: true
+  # postモデルに関連したモデルのフィールドを作成できるようにする
+  accepts_nested_attributes_for :post_valuations, allow_destroy: true
   # 画像投稿機能のImageUploaderとpostsテーブルのreccomentd_imageカラムを連携
   mount_uploader :recommend_image, ImageUploader
 
