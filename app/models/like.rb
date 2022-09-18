@@ -1,6 +1,6 @@
 class Like < ApplicationRecord
   belongs_to :user
-  belongs_to :post, counter_cache: :likes_count
+  belongs_to :post
   # user_id, post_idの組が一意になるように設定
   validates :user_id, uniqueness: {
     scope: :post_id,
