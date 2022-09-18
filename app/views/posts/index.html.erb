@@ -1,0 +1,7 @@
+<h1>おすすめスポット一覧</h1>
+<% @posts.each do |post| %>
+  <p>タイトル：<%= post.title %></p>
+  <p>シチュエーション：<%= post.situation %></p>
+  <p>エリア：<%= post.area %></p>
+  <%# 画像が入る %>
+<% end %>
