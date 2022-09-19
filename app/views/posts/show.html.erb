@@ -1,2 +1,13 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<h1>スポット詳細</h1>
+<p>タイトル <%= @post.title %></p>
+<p>おすすめポイント <%= @post.recommend_point %></p>
+<p>シチュエーション <%= @post.situation %></p>
+<p>エリア <%= @post.area %></p>
+<p>ポイント</p>
+<p><%= @post.post_valuation.access_point %></p>
+<p><%= @post.post_valuation.casually_point %></p>
+<p><%= @post.post_valuation.price_point %></p>
+<p><%= @post.post_valuation.go_to_again_point %></p>
+<p><%= @post.post_valuation.one_person_point %></p>
+<%# 画像 %>
+<%# グラフ %>
