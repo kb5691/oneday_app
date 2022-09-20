@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    @posts = Post.order(updated_at: :asc)
+    @posts = Post.order(updated_at: :desc)
   end
 
   def show; end
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
 
   def update
     @post.update!(post_params)
-    redirect_to post
+    redirect_to @post
   end
 
   def destroy
