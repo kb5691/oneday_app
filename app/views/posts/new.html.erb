@@ -6,12 +6,12 @@
   <p><%= form.label :area, "エリア" %> <%= form.text_field :area %></p>
   <%# 画像アップロード %>
   <p>おすすめ度(1~5の中から選んでください)</p>
-  <%= f.fields_for :post_valuations do |post_valuation| %>
-    <p><%= post_valuation.label :access_point, "アクセス" %> <%= post_valuation.number_field :access_point, min: 1, max: 5 %></p>
-    <p><%= post_valuation.label :casually_point, "気軽に行ける" %> <%= post_valuation.number_field :casually_point, min: 1, max: 5 %></p>
-    <p><%= post_valuation.label :price_point, "金額" %> <%= post_valuation.number_field :price_point, min: 1, max: 5 %></p>
-    <p><%= post_valuation.label :go_to_again_point, "また行きたい" %> <%= post_valuation.number_field :go_to_again_point, min: 1, max: 5 %></p>
-    <p><%= post_valuation.label :one_person_point, "1人での行きやすさ" %> <%= post_valuation.number_field :one_person_point, min: 1, max: 5 %></p>
+  <%= form.fields_for :post_valuation, @post.build_post_valuation do |post_val| %>
+    <p><%= post_val.label :access_point, "アクセス" %> <%= post_val.number_field :access_point, min: 1, max: 5 %></p>
+    <p><%= post_val.label :casually_point, "気軽に行ける" %> <%= post_val.number_field :casually_point, min: 1, max: 5 %></p>
+    <p><%= post_val.label :price_point, "金額" %> <%= post_val.number_field :price_point, min: 1, max: 5 %></p>
+    <p><%= post_val.label :go_to_again_point, "また行きたい" %> <%= post_val.number_field :go_to_again_point, min: 1, max: 5 %></p>
+    <p><%= post_val.label :one_person_point, "1人での行きやすさ" %> <%= post_val.number_field :one_person_point, min: 1, max: 5 %></p>
   <% end %>
   <%= form.submit "送信" %>
 <% end %>

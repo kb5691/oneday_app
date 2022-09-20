@@ -15,11 +15,16 @@ post1 = user1.posts.create!(title: "東京タワー", recommend_point: "ライ�
 post2 = user2.posts.create!(title: "浅草寺", recommend_point: "日本文化のよさを改めて知れる", situation: "お寺")
 post3 = user3.posts.create!(title: "横浜中華街", recommend_point: "食べ歩きを楽しめる", situation: "食べ歩き", area: "神奈川県")
 
+# 投稿に対しての評価
+PostValuation.create!(access_point: 1, casually_point: 2, price_point: 3, go_to_again_point: 4, one_person_point: 5, post_id: post1.id)
+PostValuation.create!(access_point: 2, casually_point: 2, price_point: 3, go_to_again_point: 4, one_person_point: 5, post_id: post2.id)
+PostValuation.create!(access_point: 3, casually_point: 2, price_point: 3, go_to_again_point: 4, one_person_point: 5, post_id: post3.id)
+
 # いいね
-post1.likes.create!(user_id: user2.id)
-post1.likes.create!(user_id: user3.id)
-post2.likes.create!(user_id: user3.id)
-post3.likes.create!(user_id: user1.id)
+# post1.likes.create!(user_id: user2.id)
+# post1.likes.create!(user_id: user3.id)
+# post2.likes.create!(user_id: user3.id)
+# post3.likes.create!(user_id: user1.id)
 
 # ログイン時に使用するアカウント
 User.create!(name: "test", email: email, password: password)
