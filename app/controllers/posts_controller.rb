@@ -13,20 +13,29 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = current_user.posts.create!(post_params)
-    redirect_to post
+    @post = current_user.posts.new(post_params)
+    if @post.save
+      redirect_to @post, notice: t(".notice")
+    else
+      flash.now[:alert] = "投稿に失敗しました"
+      render :new
+    end
   end
 
   def edit; end
 
   def update
-    @post.update!(post_params)
-    redirect_to @post
+    if @post.update(post_params)
+      redirect_to @post, notice: t(".notice")
+    else
+      flash.now[:alert] = "更新に失敗しました"
+      render :edit
+    end
   end
 
   def destroy
     @post.destroy!
-    redirect_to root_path
+    redirect_to root_path, alert: t(".alert")
   end
 
   private

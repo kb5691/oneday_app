@@ -9,9 +9,11 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   # postを「いいね」しているユーザーの一覧を取得できるように設定
   has_many :liked_users, through: :likes, source: :user
-  # title, recommend_pointを入力必須にする
-  validates :title, presence: true
-  validates :recommend_point, presence: true
+  # title, recommend_pointを入力必須にする、それ以外は文字数制限をする
+  validates :title, presence: true, length: { maximum: 50 }
+  validates :recommend_point, presence: true, length: { maximum: 500 }
+  validates :situation, length: { maximum: 30 }
+  validates :area, length: { maximum: 30 }
   # postモデルに関連したモデルのフィールドを作成できるようにする
   accepts_nested_attributes_for :post_valuation, allow_destroy: true
   # 画像投稿機能のImageUploaderとpostsテーブルのreccomentd_imageカラムを連携
