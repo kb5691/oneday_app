@@ -3,7 +3,10 @@
   <p>タイトル：<%= post.title %></p>
   <p>シチュエーション：<%= post.situation %></p>
   <p>エリア：<%= post.area %></p>
-  <%# 画像が入る %>
+  <%# 画像がある場合は表示 %>
+  <% if post.recommend_image? %>
+    <p>おすすめスポット：<%= image_tag post.recommend_image.url %></p>
+  <% end %>
   <p><%= link_to "詳細", post %></p>
   <p><%= link_to "編集", edit_post_path(post) %></p>
   <p><%= link_to "削除", post, method: :delete, data: { confirm: "削除しますか?" } %></p>
