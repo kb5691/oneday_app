@@ -3,28 +3,40 @@ class PostsController < ApplicationController
     @posts = Post.order(:created_at)
   end
 
-  def show; end
+  def show
+    @post = Post.find(params[:id])
+  end
 
   def new
     @post = Post.new
-    @post_valuation = @post.post_valuations.new
+    @post.build_post_valuation
   end
 
   def create
-    Post.create!(post_params)
+    post = current_user.posts.create!(post_params)
     redirect_to post
   end
 
-  def edit; end
+  def edit
+    @post = Post.find(params[:id])
+  end
 
-  def update; end
+  def update
+    post = Post.find(params[:id])
+    post.update!(post_params)
+    redirect_to post
+  end
 
-  def destroy; end
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy!
+    redirect_to root_path
+  end
 
   private
 
   def post_params
     params.require(:post).permit(:title, :recommend_point, :situation, :area, :recommend_image,
-                                 post_valuations_attributes: [:access_point, :casually_point, :price_point, :go_to_again_point, :one_person_point])
+                                 post_valuation_attributes: [:access_point, :casually_point, :price_point, :go_to_again_point, :one_person_point, :_destroy])
   end
 end

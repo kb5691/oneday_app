@@ -4,4 +4,7 @@
   <p>シチュエーション：<%= post.situation %></p>
   <p>エリア：<%= post.area %></p>
   <%# 画像が入る %>
+  <p><%= link_to "詳細", post %></p>
+  <p><%= link_to "編集", edit_post_path(post) %></p>
+  <p><%= link_to "削除", post, method: :delete, data: { confirm: "削除しますか?" } %></p>
 <% end %>
