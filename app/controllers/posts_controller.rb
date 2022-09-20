@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: %i[show edit update destroy]
+
   def index
-    @posts = Post.order(created_at: :asc)
+    @posts = Post.order(updated_at: :desc)
   end
 
-  def show
-    @post = Post.find(params[:id])
-  end
+  def show; end
 
   def new
     @post = Post.new
@@ -13,27 +13,36 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = current_user.posts.create!(post_params)
-    redirect_to post
+    @post = current_user.posts.new(post_params)
+    if @post.save
+      redirect_to @post, notice: t(".notice")
+    else
+      flash.now[:alert] = "投稿に失敗しました"
+      render :new
+    end
   end
 
-  def edit
-    @post = Post.find(params[:id])
-  end
+  def edit; end
 
   def update
-    post = Post.find(params[:id])
-    post.update!(post_params)
-    redirect_to post
+    if @post.update(post_params)
+      redirect_to @post, notice: t(".notice")
+    else
+      flash.now[:alert] = "更新に失敗しました"
+      render :edit
+    end
   end
 
   def destroy
-    post = Post.find(params[:id])
-    post.destroy!
-    redirect_to root_path
+    @post.destroy!
+    redirect_to root_path, alert: t(".alert")
   end
 
   private
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
   def post_params
     params.require(:post).permit(:title, :recommend_point, :situation, :area, :recommend_image,
