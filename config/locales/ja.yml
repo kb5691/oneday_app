@@ -3,10 +3,14 @@ ja:
   posts:
     create:
       notice: '投稿しました'
+    edit:
+      alert: '権限がありません'
     update:
       notice: '更新しました'
+      alert: '権限がありません'
     destroy:
       alert: '削除しました'
+      alert: '権限がありません'
   activerecord:
     models:
       post: おすすめスポット
@@ -198,7 +202,7 @@ ja:
   time:
     am: 午前
     formats:
-      default: '%Y年%m月%d日(%a) %H時%M分%S秒 %z'
+      default: '%Y年%-m月%-d日(%a) %-H時%-M分%-S秒'
       long: '%Y/%m/%d %H:%M'
       short: '%m/%d %H:%M'
     pm: 午後
