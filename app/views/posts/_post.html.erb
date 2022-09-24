@@ -1,0 +1,24 @@
+<div>
+  <p>ユーザー名: <%= post.user.name %></p>
+  <p>タイトル：<%= post.title %></p>
+  <p>シチュエーション：<%= post.situation %></p>
+  <p>エリア：<%= post.area %></p>
+  <%# 画像がある場合は表示 %>
+  <% if post.recommend_image? %>
+    <p>おすすめスポット：<%= image_tag post.recommend_image.url %></p>
+  <% end %>
+  <%# いいね機能 %>
+  <p id="post-<%= post.id %>">
+    <% if post.liked_by?(current_user) %>
+      <%= render "like", post: post %>
+    <% else %>
+      <%= render "dislike", post: post %>
+    <% end %>
+  </p>
+  <p><%= link_to "詳細", post %></p>
+  <%# 自分の投稿のみ編集、削除を表示する %>
+  <% if current_user.id == post.user_id %>
+    <p><%= link_to "編集", edit_post_path(post) %></p>
+    <p><%= link_to "削除", post, method: :delete, data: { confirm: "削除しますか?" } %></p>
+  <% end %>
+</div>
