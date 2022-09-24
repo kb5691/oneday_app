@@ -15,6 +15,7 @@ ja:
     models:
       post: おすすめスポット
       post_valuation: 評価
+      like: いいね
     attributes:
       post:
         title: タイトル
@@ -28,7 +29,16 @@ ja:
         price_point: お財布に優しい
         go_to_again_point: また行きたい
         one_person_point: 1人で行きやすい
+      like:
+        user: ユーザー
+        user_id: ユーザー
+        post: 投稿
     errors:
+      models:
+        like:
+          attributes:
+            user_id:
+              duplicated: は同じ投稿にいいねはできません
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:

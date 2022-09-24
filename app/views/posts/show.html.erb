@@ -15,6 +15,14 @@
 <p><%= @post.post_valuation.go_to_again_point %></p>
 <p><%= @post.post_valuation.one_person_point %></p>
 <%# グラフ %>
+<%# いいね機能 %>
+<p id="post-<%= @post.id %>">
+  <% if @post.liked_by?(current_user) %>
+    <%= render "like", post: @post %>
+  <% else %>
+    <%= render "dislike", post: @post %>
+  <% end %>
+</p>
 <%# 自分の投稿の場合は編集、削除を表示 %>
 <% if current_user.id == @post.user_id %>
   <p>
