@@ -5,10 +5,10 @@ class Post < ApplicationRecord
   has_one :post_valuation, dependent: :destroy
   # postが複数のlikeを持つように設定し、postが削除されたらlikeも削除される
   has_many :likes, dependent: :destroy
-  # postが複数のcommentを持つように設定し、postが削除されたらcommentも削除される
-  has_many :comments, dependent: :destroy
   # postを「いいね」しているユーザーの一覧を取得できるように設定
   has_many :liked_users, through: :likes, source: :user
+  # postが複数のcommentを持つように設定し、postが削除されたらcommentも削除される
+  has_many :comments, dependent: :destroy
   # title, recommend_pointを入力必須にする、それ以外は文字数制限をする
   validates :title, presence: true, length: { maximum: 50 }
   validates :recommend_point, presence: true, length: { maximum: 500 }

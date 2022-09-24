@@ -1,11 +1,13 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[show edit update destroy]
+  before_action :set_post, only: %i[edit update destroy]
 
   def index
-    @posts = Post.order(updated_at: :desc)
+    @posts = Post.includes(:user, :likes).order(created_at: :desc)
   end
 
-  def show; end
+  def show
+    @post = Post.find(params[:id])
+  end
 
   def new
     @post = Post.new
@@ -13,9 +15,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.new(post_params)
-    if @post.save
-      redirect_to @post, notice: t(".notice")
+    post = current_user.posts.new(post_params)
+    if post.save
+      redirect_to post, notice: t(".notice")
     else
       flash.now[:alert] = "投稿に失敗しました"
       render :new
@@ -41,7 +43,9 @@ class PostsController < ApplicationController
   private
 
   def set_post
-    @post = Post.find(params[:id])
+    # 自分の投稿のみ編集、削除ができるようにする
+    @post = current_user.posts.find_by(id: params[:id])
+    redirect_to root_path, alert: t(".alert") if @post.nil?
   end
 
   def post_params
