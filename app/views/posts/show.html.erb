@@ -8,13 +8,12 @@
 <% if @post.recommend_image? %>
   <p>おすすめスポット：<%= image_tag @post.recommend_image.url %></p>
 <% end %>
-<p>ポイント</p>
-<p><%= @post.post_valuation.access_point %></p>
-<p><%= @post.post_valuation.casually_point %></p>
-<p><%= @post.post_valuation.price_point %></p>
-<p><%= @post.post_valuation.go_to_again_point %></p>
-<p><%= @post.post_valuation.one_person_point %></p>
 <%# グラフ %>
+<p>ポイント</p>
+<%= Gon::Base.render_data %>
+<div class="base-container">
+  <canvas id="radar-chart"></canvas>
+</div>
 <%# いいね機能 %>
 <p id="post-<%= @post.id %>">
   <% if @post.liked_by?(current_user) %>
