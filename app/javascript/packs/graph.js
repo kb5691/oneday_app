@@ -1,48 +1,47 @@
 document.addEventListener('turbolinks:load', () => {
-  // 折れ線グラフのデータ（値を変更するとグラフが変化することを確認してみて下さい）
-  const lineLabel = ['1/1', '1/2', '1/4', '1/5', '1/6', '1/7'];
-  const lineData = [60.3, 61.1, 60.8, null, 60.5, 61.4];
+  // おすすめ度のデータ
+  const radarData = [
+    gon.chart_data.access_point,
+    gon.chart_data.casually_point,
+    gon.chart_data.price_point,
+    gon.chart_data.go_to_again_point,
+    gon.chart_data.one_person_point,
+  ];
 
-  // 折れ線グラフのオプション
-
-  const lineChartData = {
-    labels: lineLabel,
+  // グラフのデータ
+  const radarChartDate = {
+    // 各項目のラベル
+    labels: ['アクセスしやすい', '気軽に行ける', 'お財布に優しい', 'また行きたい', '1人で行きやすい'],
+    // データの設定
     datasets: [
       {
-        label: '体重(kg)',
-        data: lineData,
-        // グラフの色はここで変更できます
+        label: 'おすすめ度',
+        data: radarData,
+        fill: true,
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgba(255, 99, 132, 1)',
-        borderWidth: 1,
-        spanGaps: true,
+        borderColor: 'rgb(255, 99, 132)',
+        pointBackgroundColor: 'rgb(255, 99, 132)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgb(255, 99, 132)',
       },
     ],
   };
 
-  const lineChartOption = {
-    title: {
-      display: true,
-      text: 'ここにタイトルを記載できます',
-    },
-    tooltips: {
-      callbacks: {
-        // ホバー（スマホならタップ）時のラベル表示を変更
-        title: function (tooltipItems) {
-          return tooltipItems[0].xLabel.replace(/^(\d+).(\d+)$/, ' $1 月 $2 日');
-        },
-        label: function (tooltipItem) {
-          return '体重: ' + tooltipItem.yLabel + 'kg';
-        },
+  // グラフのオプション
+  const radarChartOption = {
+    elements: {
+      line: {
+        borderWidth: 3,
       },
     },
   };
 
-  // 折れ線グラフを表示
-  const lineChartContext = document.getElementById('line-chart').getContext('2d');
-  new Chart(lineChartContext, {
-    type: 'line',
-    data: lineChartData,
-    options: lineChartOption,
+  // グラフを表示
+  const radarChartContext = document.getElementById('radar-chart').getContext('2d');
+  new Chart(radarChartContext, {
+    type: 'radar',
+    data: radarChartDate,
+    options: radarChartOption,
   });
 });
