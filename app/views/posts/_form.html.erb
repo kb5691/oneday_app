@@ -5,6 +5,7 @@
   <p><%= form.label :situation %> <%= form.text_field :situation %></p>
   <p><%= form.label :area %> <%= form.text_field :area %></p>
   <p><%= form.label :recommend_image %> <%= form.file_field :recommend_image, accept: "image/png,image/jpeg,image/gif" %></p>
+  <p><%= form.label :address %> <%= form.text_field :address %></p>
   <p>おすすめ度(1~5の中から選んでください)</p>
   <% if request.path_info == new_post_path %>
     <%= form.fields_for :post_valuation, @post.build_post_valuation do |post_val| %>
