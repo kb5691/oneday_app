@@ -11,9 +11,9 @@ user2 = User.create!(name: "suzuki", email: "suzuki@example.com", password: "pas
 user3 = User.create!(name: "tanaka", email: "tanaka@example.com", password: "password")
 
 # 投稿
-post1 = user1.posts.create!(title: "東京タワー", recommend_point: "ライトアップが綺麗で迫力がある")
-post2 = user2.posts.create!(title: "浅草寺", recommend_point: "日本文化のよさを改めて知れる", situation: "お寺")
-post3 = user3.posts.create!(title: "横浜中華街", recommend_point: "食べ歩きを楽しめる", situation: "食べ歩き", area: "神奈川県")
+post1 = user1.posts.create!(title: "東京タワー", recommend_point: "ライトアップが綺麗で迫力がある", address: "東京タワー")
+post2 = user2.posts.create!(title: "浅草寺", recommend_point: "日本文化のよさを改めて知れる", situation: "お寺", address: "浅草寺")
+post3 = user3.posts.create!(title: "横浜中華街", recommend_point: "食べ歩きを楽しめる", situation: "食べ歩き", area: "神奈川県", address: "横浜中華街")
 
 # 投稿に対しての評価
 PostValuation.create!(access_point: 1, casually_point: 2, price_point: 3, go_to_again_point: 4, one_person_point: 5, post_id: post1.id)
