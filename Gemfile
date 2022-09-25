@@ -38,6 +38,9 @@ gem "carrierwave", "~> 2.0"
 gem "mini_magick"
 # chart.js
 gem "gon"
+# google map api
+gem "geocoder"
+gem "gmaps4rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
