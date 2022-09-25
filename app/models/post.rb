@@ -18,6 +18,9 @@ class Post < ApplicationRecord
   accepts_nested_attributes_for :post_valuation, allow_destroy: true
   # 画像投稿機能のImageUploaderとpostsテーブルのreccomentd_imageカラムを連携
   mount_uploader :recommend_image, ImageUploader
+  # google map(addressが投稿されたら自動で緯度、経度をDBに登録する)
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 
   # postをuserが「いいね」しているときはtrue, 「いいね」していないときはfalse
   def liked_by?(user)
