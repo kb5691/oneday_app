@@ -52,7 +52,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :recommend_point, :situation, :area, :recommend_image,
+    params.require(:post).permit(:title, :recommend_point, :situation, :area, :recommend_image, :address, :latitude, :longitude,
                                  post_valuation_attributes: [:access_point, :casually_point, :price_point, :go_to_again_point, :one_person_point, :_destroy])
   end
 end
