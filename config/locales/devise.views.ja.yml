@@ -8,6 +8,9 @@ ja:
         alert: 'ゲストユーザーの更新はできません'
       destroy:
         alert: 'ゲストユーザーの削除はできません'
+    passwords:
+      create:
+        alert: 'ゲストユーザーのパスワード再設定はできません'
   activerecord:
     attributes:
       user:

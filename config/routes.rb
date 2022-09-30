@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   end
   # ログイン機能
   devise_for :users, controllers: {
-    registrations: "users/registrations"
+    registrations: "users/registrations",
+    passwords: "users/passwords"
   }
   # ゲストログイン
   devise_scope :user do
