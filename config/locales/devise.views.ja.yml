@@ -3,6 +3,8 @@ ja:
     sessions:
       guest_sign_in:
         notice: 'ゲストユーザーとしてログインしました'
+      ensure_normal_user:
+        alert: 'ゲストユーザーは削除できません'
   activerecord:
     attributes:
       user:
