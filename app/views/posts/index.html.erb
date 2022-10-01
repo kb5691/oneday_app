@@ -1,3 +1,7 @@
 <h1>おすすめスポット一覧</h1>
+<%= search_form_for @q do |form| %>
+  <%= form.search_field :title_or_situation_or_area_cont, placeholder: "タイトル・シチュエーション・エリア" %>
+  <%= form.submit "検索" %>
+<% end %>
 <%= render @posts %>
 <%= paginate @posts %>

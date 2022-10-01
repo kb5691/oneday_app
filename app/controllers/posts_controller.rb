@@ -5,7 +5,8 @@ class PostsController < ApplicationController
   PER_PAGE = 1
 
   def index
-    @posts = Post.includes(:user, :likes).order(created_at: :desc).page(params[:page]).per(PER_PAGE)
+    @q = Post.ransack(params[:q])
+    @posts = @q.result.includes(:user, :likes).order(created_at: :desc).page(params[:page]).per(PER_PAGE)
   end
 
   def show
