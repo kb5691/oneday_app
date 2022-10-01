@@ -1,4 +1,16 @@
 ja:
+  users:
+    sessions:
+      guest_sign_in:
+        notice: 'ゲストユーザーとしてログインしました'
+    registrations:
+      update:
+        alert: 'ゲストユーザーの更新はできません'
+      destroy:
+        alert: 'ゲストユーザーの削除はできません'
+    passwords:
+      create:
+        alert: 'ゲストユーザーのパスワード再設定はできません'
   activerecord:
     attributes:
       user:
