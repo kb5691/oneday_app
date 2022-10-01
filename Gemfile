@@ -41,6 +41,10 @@ gem "gon"
 # google map api
 gem "dotenv-rails"
 gem "geocoder"
+# ページネーション
+gem "kaminari"
+# 検索機能
+gem "ransack"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
