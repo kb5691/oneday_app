@@ -1,4 +1,5 @@
 <p>ユーザー情報</p>
+<%= link_to "アカウント編集", edit_user_registration_path %>
 <p>ユーザー名： <%= @user.name %></p>
 <p>プロフィール画像： <%= image_tag @user.profile_image.thumb.url %></p>
 <p>住んでいる都道府県： <%= @user.address %></p>
