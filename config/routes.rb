@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resource :likes, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
   end
+  resource :users, only: :show
   # ログイン機能
   devise_for :users, controllers: {
     registrations: "users/registrations",
