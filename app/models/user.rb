@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   # userが「いいね」しているメッセージの一覧を取得できるように設定
   has_many :liked_posts, through: :likes, source: :post
+  # プロフィール画像
+  mount_uploader :profile_image, ImageUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

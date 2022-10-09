@@ -1,5 +1,7 @@
 <h1>スポット詳細</h1>
-<p>ユーザー名: <%= @post.user.name %></p>
+<% if URI(request.referer.to_s).path != '/users' %>
+  <p>ユーザー名: <%= @post.user.name %></p>
+<% end %>
 <p>タイトル <%= @post.title %></p>
 <p>おすすめポイント <%= @post.recommend_point %></p>
 <p>シチュエーション <%= @post.situation %></p>
@@ -21,27 +23,29 @@
 <%= javascript_pack_tag "map" %>
 <script async defer
              src="https://maps.googleapis.com/maps/api/js?v=weekly&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"></script>
-<%# いいね機能 %>
-<p id="post-<%= @post.id %>">
-  <% if @post.liked_by?(current_user) %>
-    <%= render "like", post: @post %>
-  <% else %>
-    <%= render "dislike", post: @post %>
+<% if URI(request.referer.to_s).path != '/users' %>
+  <%# いいね機能 %>
+  <p id="post-<%= @post.id %>">
+    <% if @post.liked_by?(current_user) %>
+      <%= render "like", post: @post %>
+    <% else %>
+      <%= render "dislike", post: @post %>
+    <% end %>
+  </p>
+  <%# コメント機能 %>
+  <%= form_with model: [@post, @comment], local: true do |form| %>
+    <p><%= form.label :content %> <%= form.text_area :content %></p>
+    <%= form.submit "コメントする" %>
   <% end %>
-</p>
-<%# コメント機能 %>
-<%= form_with model: [@post, @comment], local: true do |form| %>
-  <p><%= form.label :content %> <%= form.text_area :content %></p>
-  <%= form.submit "コメントする" %>
-<% end %>
-<p>コメント件数：<%= @comments.count %></p>
-<% @comments.each do |comment| %>
-  <p><%= comment.user.name %></p>
-  <p><%= comment.created_at.strftime('%Y/%m/%d') %></p>
-  <p><%= comment.content %></p>
-  <% if comment.user == current_user %>
-    <p><%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, data: { confirm: "削除しますか？" } %>
-    </p>
+  <p>コメント件数：<%= @comments.count %></p>
+  <% @comments.each do |comment| %>
+    <p><%= comment.user.name %></p>
+    <p><%= comment.created_at.strftime('%Y/%m/%d') %></p>
+    <p><%= comment.content %></p>
+    <% if comment.user == current_user %>
+      <p><%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, data: { confirm: "削除しますか？" } %>
+      </p>
+    <% end %>
   <% end %>
 <% end %>
 <%# 自分の投稿の場合は編集、削除を表示 %>
@@ -51,4 +55,8 @@
     <%= link_to "削除", post_path(@post), method: :delete, data: { confirm: "削除しますか？" } %>
   </p>
 <% end %>
-<p><%= link_to "おすすめスポット一覧へ", posts_path %></p>
+<% if URI(request.referer.to_s).path == '/users' %>
+  <p><%= link_to "マイページへ", users_path %></p>
+<% else %>
+  <p><%= link_to "おすすめスポット一覧へ", posts_path %></p>
+<% end %>

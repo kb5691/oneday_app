@@ -19,5 +19,11 @@ module Users
     def ensure_normal_user
       redirect_to root_path, alert: t(".alert") if resource.email == "guest@example.com"
     end
+
+    protected
+
+    def after_update_path_for(_resource)
+      user_profile_path(current_user)
+    end
   end
 end

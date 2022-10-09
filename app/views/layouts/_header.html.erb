@@ -2,7 +2,7 @@
   <%# ログイン時 %>
   <%= link_to "トップ", posts_path %>
   <%= link_to "投稿画面へ", new_post_path %>
-  <%= link_to "アカウント編集", edit_user_registration_path %>
+  <%= link_to 'マイページへ', users_path %>
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" } %>
 <% else %>
   <%# 非ログイン時 %>
