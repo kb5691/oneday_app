@@ -1,10 +1,13 @@
 <p>ユーザー情報</p>
-<%= link_to "アカウント編集", edit_user_registration_path %>
+<% if current_user.id == @user.id %>
+  <%= link_to "アカウント編集", edit_user_registration_path %>
+<% end %>
 <p>ユーザー名： <%= @user.name %></p>
-<p>プロフィール画像： <%= image_tag @user.profile_image.thumb.url %></p>
+<p>プロフィール画像： <%= image_tag @user.profile_image.url %></p>
 <p>住んでいる都道府県： <%= @user.address %></p>
 <p>行きたい場所： <%= @user.go_to_area %></p>
 <p>好きなシュチュエーション： <%= @user.like_situation %></p>
+<p>投稿一覧</p>
 <% @posts.each do |post| %>
   <p>タイトル：<%= post.title %></p>
   <p>シチュエーション：<%= post.situation %></p>
@@ -13,6 +16,8 @@
     <p>おすすめスポット：<%= image_tag post.recommend_image.url %></p>
   <% end %>
   <p><%= link_to "詳細", post %></p>
-  <p><%= link_to "編集", edit_post_path(post) %></p>
-  <p><%= link_to "削除", post, method: :delete, data: { confirm: "削除しますか?" } %></p>
+  <% if current_user.id == @user.id %>
+    <p><%= link_to "編集", edit_post_path(post) %></p>
+    <p><%= link_to "削除", post, method: :delete, data: { confirm: "削除しますか?" } %></p>
+  <% end %>
 <% end %>
