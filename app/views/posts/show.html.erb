@@ -1,6 +1,7 @@
 <h1>スポット詳細</h1>
 <% if URI(request.referer.to_s).path != '/users' %>
-  <p>ユーザー名: <%= @post.user.name %></p>
+  <p>ユーザー名:<%= link_to "#{@post.user.name}", user_profile_path(@post.user.id) %></p>
+  <p><%= image_tag @post.user.profile_image.url %></p>
 <% end %>
 <p>タイトル <%= @post.title %></p>
 <p>おすすめポイント <%= @post.recommend_point %></p>
