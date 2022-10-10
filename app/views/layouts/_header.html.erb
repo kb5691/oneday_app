@@ -1,13 +1,25 @@
-<% if user_signed_in? %>
-  <%# ログイン時 %>
-  <%= link_to "トップ", posts_path %>
-  <%= link_to "投稿画面へ", new_post_path %>
-  <%= link_to 'マイページへ', users_path(id: current_user.id) %>
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" } %>
-<% else %>
-  <%# 非ログイン時 %>
-  <%= link_to "トップ", posts_path %>
-  <%= link_to "新規登録", new_user_registration_path %>
-  <%= link_to "ログイン", new_user_session_path %>
-  <%= link_to "ゲストログイン(閲覧用)", users_guest_sign_in_path, method: :post %>
-<% end %>
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed-top">
+  <%= link_to "Oneday", posts_path, class: "navbar-brand" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <% if user_signed_in? %>
+    <%# ログイン時 %>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <%= link_to "投稿画面へ", new_post_path, class: "nav-item nav-link active" %>
+        <%= link_to 'マイページへ', users_path(id: current_user.id), class: "nav-item nav-link active" %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" }, class: "nav-item nav-link active" %>
+      </div>
+    </div>
+  <% else %>
+    <%# 非ログイン時 %>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <%= link_to "新規登録", new_user_registration_path, class: "nav-item nav-link active" %>
+        <%= link_to "ログイン", new_user_session_path, class: "nav-item nav-link active" %>
+        <%= link_to "ゲストログイン(閲覧用)", users_guest_sign_in_path, method: :post, class: "nav-item nav-link active" %>
+      </div>
+    </div>
+  <% end %>
+</nav>
