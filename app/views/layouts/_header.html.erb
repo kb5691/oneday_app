@@ -5,7 +5,7 @@
   </button>
   <% if user_signed_in? %>
     <%# ログイン時 %>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <%= link_to "投稿画面へ", new_post_path, class: "nav-item nav-link active" %>
         <%= link_to 'マイページへ', users_path(id: current_user.id), class: "nav-item nav-link active" %>
@@ -14,7 +14,7 @@
     </div>
   <% else %>
     <%# 非ログイン時 %>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <%= link_to "新規登録", new_user_registration_path, class: "nav-item nav-link active" %>
         <%= link_to "ログイン", new_user_session_path, class: "nav-item nav-link active" %>
