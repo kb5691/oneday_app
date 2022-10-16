@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[edit update destroy]
+  skip_before_action :authenticate_user!, only: %i[index]
 
   # 1ページの表示数
   PER_PAGE = 1

@@ -1,7 +1,13 @@
-<h1>おすすめスポット一覧</h1>
-<%= search_form_for @q do |form| %>
-  <%= form.search_field :title_or_situation_or_area_cont, placeholder: "タイトル・シチュエーション・エリア" %>
-  <%= form.submit "検索" %>
-<% end %>
-<%= render @posts %>
-<%= paginate @posts %>
+<% if user_signed_in? %>
+  <h1>おすすめスポット一覧</h1>
+  <%= search_form_for @q do |form| %>
+    <%= form.search_field :title_or_situation_or_area_cont, placeholder: "タイトル・シチュエーション・エリア" %>
+    <%= form.submit "検索" %>
+  <% end %>
+  <%= render @posts %>
+  <%= paginate @posts %>
+<% else %>
+  <section class="masthead" role="img" aria-label="Image Description">
+    <h1>休日のひとり時間を楽しみに</h1>
+    <h2>休日の選択肢を広げるおでかけ情報</h2>
+  <% end %>
