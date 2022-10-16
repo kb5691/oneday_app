@@ -36,13 +36,14 @@ div.field_with_errors {
 }
 
 .alert-notice {
-  @extend .alert-success;
+  @extend .alert-info;
 }
 
 .alert-alert {
   @extend .alert-danger;
 }
 
+// 全体
 .base-container {
   @extend .container-fluid;
   max-width: var(--breakpoint-lg);
@@ -57,12 +58,12 @@ body {
 .footer-container {
   padding: 20px 20px;
   text-align: center;
-}
 
-.footer-container .logo {
-  width: 80px;
-  margin-bottom: 20px;
-  border-radius: 50%;
+  .logo {
+    width: 80px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+  }
 }
 
 .copyright {
