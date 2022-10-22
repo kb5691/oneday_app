@@ -45,3 +45,19 @@
     font-size: 1.1rem;
   }
 }
+
+// エラー
+#error_explanation {
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  ul {
+    padding: 0 30px;
+  }
+
+  li {
+    list-style: none;
+    margin-bottom: 15px;
+  }
+}
