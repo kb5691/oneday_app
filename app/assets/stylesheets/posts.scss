@@ -114,3 +114,29 @@
   height: 400px;
   width: 500px;
 }
+
+// マイページ投稿一覧
+.post-contaier {
+  margin-top: 100px;
+
+  h2 {
+    border-bottom: #a4a4a4 solid 1px;
+  }
+
+  .post-wrap {
+    margin-top: 45px;
+    padding: 30px;
+    border: #a4a4a4 solid 1px;
+    background-color: #f8f8f8;
+
+    h3 {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+
+    img {
+      width: 80px;
+      height: 80px;
+    }
+  }
+}

@@ -57,7 +57,7 @@
   </p>
 <% end %>
 <% if URI(request.referer.to_s).path == '/users' %>
-  <p><%= link_to "マイページへ", users_path %></p>
+  <p><%= link_to "マイページへ", users_path(id: current_user.id) %></p>
 <% else %>
   <p><%= link_to "おすすめスポット一覧へ", posts_path %></p>
 <% end %>
