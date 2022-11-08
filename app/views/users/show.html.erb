@@ -31,12 +31,12 @@
         <p>シチュエーション：<%= post.situation %></p>
         <p>エリア：<%= post.area %></p>
         <% if post.recommend_image? %>
-          <%= image_tag post.recommend_image.url %>
+          <%= image_tag post.recommend_image.url, class: "post-image" %>
         <% end %>
-        <p><%= link_to "詳細", post %></p>
+        <%= link_to "詳細", post, class: "btn btn-primary btn-post" %>
         <% if current_user.id == @user.id %>
-          <p><%= link_to "編集", edit_post_path(post) %></p>
-          <p><%= link_to "削除", post, method: :delete, data: { confirm: "削除しますか?" } %></p>
+          <%= link_to "編集", edit_post_path(post), class: "btn btn-primary btn-post" %>
+          <%= link_to "削除", post, method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-danger btn-post" %>
         <% end %>
       <% end %>
     </div>

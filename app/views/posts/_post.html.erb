@@ -34,7 +34,7 @@
     <%# 自分の投稿のみ編集、削除を表示する %>
     <% if current_user.id == post.user_id %>
       <%= link_to "編集", edit_post_path(post), class: "btn btn-primary" %>
-      <%= link_to "削除", post, method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-primary" %>
+      <%= link_to "削除", post, method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-danger" %>
     <% end %>
   </div>
 </div>
