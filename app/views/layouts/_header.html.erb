@@ -7,8 +7,8 @@
     <%# ログイン時 %>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <%= link_to "投稿画面へ", new_post_path, class: "nav-item nav-link active" %>
-        <%= link_to 'マイページへ', users_path(id: current_user.id), class: "nav-item nav-link active" %>
+        <%= link_to "新規投稿", new_post_path, class: "nav-item nav-link active" %>
+        <%= link_to 'マイページ', users_path(id: current_user.id), class: "nav-item nav-link active" %>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" }, class: "nav-item nav-link active" %>
       </div>
     </div>

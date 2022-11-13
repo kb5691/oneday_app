@@ -1,15 +1,15 @@
 <h1>スポット詳細</h1>
 <% if URI(request.referer.to_s).path != '/users' %>
   <p>ユーザー名:<%= link_to "#{@post.user.name}", user_profile_path(@post.user.id) %></p>
-  <p><%= image_tag @post.user.profile_image.url %></p>
+  <%= image_tag @post.user.profile_image.url %>
 <% end %>
-<p>タイトル <%= @post.title %></p>
+<h2><%= @post.title %></h2>
 <p>おすすめポイント <%= @post.recommend_point %></p>
 <p>シチュエーション <%= @post.situation %></p>
 <p>エリア <%= @post.area %></p>
 <%# 画像がある場合は表示 %>
 <% if @post.recommend_image? %>
-  <p>おすすめスポット：<%= image_tag @post.recommend_image.url %></p>
+  <%= image_tag @post.recommend_image.url %>
 <% end %>
 <%# グラフ %>
 <p>ポイント</p>
@@ -51,13 +51,7 @@
 <% end %>
 <%# 自分の投稿の場合は編集、削除を表示 %>
 <% if current_user.id == @post.user_id %>
-  <p>
-    <%= link_to "編集", edit_post_path(@post) %>
-    <%= link_to "削除", post_path(@post), method: :delete, data: { confirm: "削除しますか？" } %>
-  </p>
+  <%= link_to "編集", edit_post_path(@post), class: "btn btn-primary" %>
+  <%= link_to "削除", post_path(@post), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger" %>
 <% end %>
-<% if URI(request.referer.to_s).path == '/users' %>
-  <p><%= link_to "マイページへ", users_path(id: current_user.id) %></p>
-<% else %>
-  <p><%= link_to "おすすめスポット一覧へ", posts_path %></p>
-<% end %>
+<%= link_to "戻る", :back %>
