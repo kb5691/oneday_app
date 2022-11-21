@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index]
 
   # 1ページの表示数
-  PER_PAGE = 1
+  PER_PAGE = 5
 
   def index
     @q = Post.ransack(params[:q])
