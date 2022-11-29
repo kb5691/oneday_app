@@ -262,18 +262,6 @@
     }
   }
 
-  .like-comment-container {
-    display: flex;
-
-    .like-btn {
-      margin-right: 30px;
-    }
-
-    textarea {
-      margin-right: 15px;
-    }
-  }
-
   .map-container {
     margin-bottom: 30px;
 
@@ -285,6 +273,57 @@
     #map {
       width: 100%;
       height: 400px;
+    }
+
+  }
+
+  form {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 20px;
+
+    .comment-textarea {
+      margin-right: 18px;
+    }
+  }
+
+  .comment-container {
+    width: 100%;
+    margin: 1.8em 0 1.5em;
+    display: flex;
+
+    .comment-user {
+      display: flex;
+      align-items: center;
+      margin-right: 30px;
+    }
+
+    .comment-chat {
+      position: relative;
+      padding: 17px 13px;
+      border-radius: 12px;
+      background: #e6f4ff;
+      margin-right: 10px;
+
+      :after {
+        content: "";
+        position: absolute;
+        top: 18px;
+        left: -24px;
+        border: 12px solid transparent;
+        border-right: 12px solid #e6f4ff;
+
+      }
+
+      p {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .comment-date {
+      margin: auto 0 5px;
+      font-size: 14px;
     }
   }
 
