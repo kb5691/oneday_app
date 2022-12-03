@@ -20,16 +20,53 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import "@fortawesome/fontawesome-free/scss/fontawesome";
 @import "@fortawesome/fontawesome-free/scss/regular";
 
+// エラーメッセージ
 div.field_with_errors {
   display: contents;
 
-  input {
-    border: 2px solid red;
+  input,
+  textarea {
+    @extend .is-invalid;
   }
 }
 
+// フラッシュ
+.alert {
+  margin-bottom: 0px
+}
+
+.alert-notice {
+  @extend .alert-info;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+// 全体
 .base-container {
-  margin: 0 auto;
-  padding: 1rem;
-  max-width: 600px;
+  @extend .container-fluid;
+  max-width: var(--breakpoint-lg);
+  padding: 30px 15px;
+}
+
+body {
+  padding-top: 56px;
+}
+
+// footer
+.footer-container {
+  padding: 20px 20px;
+  text-align: center;
+
+  .logo {
+    width: 80px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+  }
+}
+
+.copyright {
+  color: #fff;
+  margin-bottom: 0px;
 }
