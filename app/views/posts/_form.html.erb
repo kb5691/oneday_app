@@ -1,28 +1,78 @@
 <%= render "layouts/error_messages" %>
 <%= form_with model: @post, local: true do |form| %>
-  <p><%= form.label :title %> <%= form.text_field :title %></p>
-  <p><%= form.label :recommend_point %> <%= form.text_area :recommend_point %></p>
-  <p><%= form.label :situation %> <%= form.text_field :situation %></p>
-  <p><%= form.label :area %> <%= form.text_field :area %></p>
-  <p><%= form.label :recommend_image %> <%= form.file_field :recommend_image, accept: "image/png,image/jpeg,image/gif" %></p>
-  <p><%= form.label :address %> <%= form.text_field :address %></p>
-  <p>おすすめ度(1~5の中から選んでください)</p>
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "form-control", required: true %>
+  </div>
+  <div class="form-group">
+    <%= form.label :recommend_point %>
+    <%= form.text_area :recommend_point, class: "form-control", required: true %>
+  </div>
+  <div class="form-group">
+    <%= form.label :situation %>
+    <%= form.text_field :situation, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :area %>
+    <%= form.text_field :area, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :address %>
+    <%= form.text_field :address, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :recommend_image %>
+    <%= form.file_field :recommend_image, accept: "image/png,image/jpeg,image/gif", class: "form-control-file" %>
+  </div>
+  <h2>おすすめ度(1~5の中から選んでください)</h2>
   <% if request.path_info == new_post_path %>
     <%= form.fields_for :post_valuation, @post.build_post_valuation do |post_val| %>
-      <p><%= post_val.label :access_point %> <%= post_val.number_field :access_point, min: 1, max: 5 %></p>
-      <p><%= post_val.label :casually_point %> <%= post_val.number_field :casually_point, min: 1, max: 5 %></p>
-      <p><%= post_val.label :price_point %> <%= post_val.number_field :price_point, min: 1, max: 5 %></p>
-      <p><%= post_val.label :go_to_again_point %> <%= post_val.number_field :go_to_again_point, min: 1, max: 5 %></p>
-      <p><%= post_val.label :one_person_point %> <%= post_val.number_field :one_person_point, min: 1, max: 5 %></p>
+      <div class="form-group">
+        <%= post_val.label :access_point %>
+        <%= post_val.number_field :access_point, min: 1, max: 5, class: "form-control", required: true %>
+      </div>
+      <div class="form-group">
+        <%= post_val.label :casually_point %>
+        <%= post_val.number_field :casually_point, min: 1, max: 5, class: "form-control", required: true %>
+      </div>
+      <div class="form-group">
+        <%= post_val.label :price_point %>
+        <%= post_val.number_field :price_point, min: 1, max: 5, class: "form-control", required: true %>
+      </div>
+      <div class="form-group">
+        <%= post_val.label :go_to_again_point %>
+        <%= post_val.number_field :go_to_again_point, min: 1, max: 5, class: "form-control", required: true %>
+      </div>
+      <div class="form-group">
+        <%= post_val.label :one_person_point %>
+        <%= post_val.number_field :one_person_point, min: 1, max: 5, class: "form-control", required: true %>
+      </div>
     <% end %>
   <% else %>
     <%= form.fields_for :post_valuation do |post_val| %>
-      <p><%= post_val.label :access_point %> <%= post_val.number_field :access_point, min: 1, max: 5 %></p>
-      <p><%= post_val.label :casually_point %> <%= post_val.number_field :casually_point, min: 1, max: 5 %></p>
-      <p><%= post_val.label :price_point %> <%= post_val.number_field :price_point, min: 1, max: 5 %></p>
-      <p><%= post_val.label :go_to_again_point %> <%= post_val.number_field :go_to_again_point, min: 1, max: 5 %></p>
-      <p><%= post_val.label :one_person_point %> <%= post_val.number_field :one_person_point, min: 1, max: 5 %></p>
+      <div class="form-group">
+        <%= post_val.label :access_point %>
+        <%= post_val.number_field :access_point, min: 1, max: 5, class: "form-control", required: true %>
+      </div>
+      <div class="form-group">
+        <%= post_val.label :casually_point %>
+        <%= post_val.number_field :casually_point, min: 1, max: 5, class: "form-control", required: true %>
+      </div>
+      <div class="form-group">
+        <%= post_val.label :price_point %>
+        <%= post_val.number_field :price_point, min: 1, max: 5, class: "form-control", required: true %>
+      </div>
+      <div class="form-group">
+        <%= post_val.label :go_to_again_point %>
+        <%= post_val.number_field :go_to_again_point, min: 1, max: 5, class: "form-control", required: true %>
+      </div>
+      <div class="form-group">
+        <%= post_val.label :one_person_point %>
+        <%= post_val.number_field :one_person_point, min: 1, max: 5, class: "form-control", required: true %>
+      </div>
     <% end %>
   <% end %>
-  <%= form.submit button_value %>
+  <div class="btn-container">
+    <%= form.submit button_value, class: "btn btn-primary btn-block" %>
+  </div>
 <% end %>

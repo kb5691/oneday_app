@@ -1,27 +1,35 @@
-<div>
-  <p>ユーザー名:<%= link_to "#{post.user.name}", user_profile_path(post.user.id) %></p>
-  <p><%= image_tag post.user.profile_image.url %></p>
-  <p>タイトル：<%= post.title %></p>
-  <p>シチュエーション：<%= post.situation %></p>
-  <p>エリア：<%= post.area %></p>
+<div class="card">
   <%# 画像がある場合は表示 %>
   <% if post.recommend_image? %>
-    <p>おすすめスポット：<%= image_tag post.recommend_image.url %></p>
+    <%= image_tag post.recommend_image.url, class: "card-img-top" %>
   <% end %>
-  <%# いいね機能 %>
-  <p id="post-<%= post.id %>">
-    <% if post.liked_by?(current_user) %>
-      <%= render "like", post: post %>
-    <% else %>
-      <%= render "dislike", post: post %>
+  <div class="card-body">
+    <div class="user-info">
+      <p>ユーザー名：<%= link_to "#{post.user.name}", user_profile_path(post.user.id) %></p>
+      <%= image_tag post.user.profile_image.url, class: "user-image" %>
+    </div>
+    <h2 class="card-title"><%= post.title %></h2>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">シチュエーション：<%= post.situation %></li>
+    <li class="list-group-item">エリア：<%= post.area %></li>
+    <li class="list-group-item">
+      <%# いいね機能 %>
+      <p id="post-<%= post.id %>" class="like-btn">
+        <% if post.liked_by?(current_user) %>
+          <%= render "like", post: post %>
+        <% else %>
+          <%= render "dislike", post: post %>
+        <% end %>
+      </p>
+    </li>
+  </ul>
+  <div class="post-link">
+    <%= link_to "詳細", post, class: "btn btn-primary button" %>
+    <%# 自分の投稿のみ編集、削除を表示する %>
+    <% if current_user.id == post.user_id %>
+      <%= link_to "編集", edit_post_path(post), class: "btn btn-primary button" %>
+      <%= link_to "削除", post, method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-danger button" %>
     <% end %>
-  </p>
-  <%# コメント数 %>
-  <p><%= post.comments.count %>コメント</p>
-  <p><%= link_to "詳細", post %></p>
-  <%# 自分の投稿のみ編集、削除を表示する %>
-  <% if current_user.id == post.user_id %>
-    <p><%= link_to "編集", edit_post_path(post) %></p>
-    <p><%= link_to "削除", post, method: :delete, data: { confirm: "削除しますか?" } %></p>
-  <% end %>
+  </div>
 </div>

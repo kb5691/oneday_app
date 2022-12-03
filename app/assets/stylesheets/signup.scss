@@ -1,0 +1,86 @@
+// 新規登録、ログイン画面
+.login-container,
+.sign-up-container {
+  text-align: center;
+  margin: 120px 600px 180px;
+  padding: 50px 0;
+  border: 1px #a4a4a4 solid;
+
+  >h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+}
+
+// パスワードリセット画面
+.pass-reset-container {
+  text-align: center;
+  margin: 140px 600px 200px;
+  padding: 60px 0;
+  border: 1px #a4a4a4 solid;
+
+  >h2 {
+    margin-bottom: 30px;
+  }
+}
+
+.field {
+  margin-bottom: 16px;
+
+  label {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+
+  input {
+    margin-bottom: 10px;
+  }
+}
+
+.actions {
+  padding: 10px 0;
+  margin-bottom: 30px;
+
+  input {
+    font-size: 1.1rem;
+  }
+}
+
+// ユーザー編集画面
+.user-edit-container {
+  padding: 100px 0;
+  margin: 100px auto;
+  width: 80%;
+  text-align: center;
+  border: 1px #a4a4a4 solid;
+
+  >h2 {
+    font-size: 2.2rem;
+    margin-bottom: 45px;
+  }
+
+  .field {
+    margin-bottom: 30px;
+
+    label {
+      font-size: 1.2rem;
+      margin-bottom: 14px;
+    }
+
+    input {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+// エラー
+#error_explanation {
+  ul {
+    padding: 0 30px;
+  }
+
+  li {
+    list-style: none;
+    margin-bottom: 15px;
+  }
+}

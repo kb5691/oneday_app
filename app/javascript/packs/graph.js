@@ -35,6 +35,15 @@ document.addEventListener('turbolinks:load', () => {
         borderWidth: 3,
       },
     },
+    scales: {
+      r: {
+        max: 5,
+        min: 0,
+        ticks: {
+          stepSize: 1,
+        },
+      },
+    },
   };
 
   // グラフを表示
