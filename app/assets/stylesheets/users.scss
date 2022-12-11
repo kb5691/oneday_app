@@ -34,3 +34,37 @@
     }
   }
 }
+
+// レスポンシブデザイン
+// タブレット
+@media screen and (max-width: 1280px) {
+  .user-container {
+    margin: 120px auto;
+  }
+}
+
+// スマホ
+@media screen and (max-width: 768px) {
+  .user-container {
+    width: 90%;
+
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    .post-wrap {
+      .post-image {
+        width: 260px;
+        height: 200px;
+      }
+    }
+  }
+}
