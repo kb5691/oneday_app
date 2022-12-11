@@ -2,8 +2,8 @@
 .login-container,
 .sign-up-container {
   text-align: center;
-  margin: 120px 600px 180px;
-  padding: 50px 0;
+  margin: 120px 400px 180px;
+  padding: 60px 0;
   border: 1px #a4a4a4 solid;
 
   >h2 {
@@ -15,8 +15,8 @@
 // パスワードリセット画面
 .pass-reset-container {
   text-align: center;
-  margin: 140px 600px 200px;
-  padding: 60px 0;
+  margin: 160px 400px 220px;
+  padding: 80px 0;
   border: 1px #a4a4a4 solid;
 
   >h2 {
@@ -82,5 +82,74 @@
   li {
     list-style: none;
     margin-bottom: 15px;
+  }
+}
+
+// レスポンシブデザイン
+// タブレット
+@media screen and (max-width: 1280px) {
+
+  .login-container,
+  .sign-up-container {
+    margin: 120px 160px 180px;
+  }
+
+  .field {
+    label {
+      margin-bottom: 10px;
+    }
+  }
+
+  .pass-reset-container {
+    margin: 140px 140px 260px;
+    padding: 100px 0;
+  }
+
+  .user-edit-container {
+    padding: 100px 30px;
+  }
+}
+
+// スマホ
+@media screen and (max-width: 768px) {
+
+  .sign-up-container {
+    margin: 100px 40px 120px;
+    padding: 120px 0;
+
+    h2 {
+      font-size: 2.2rem;
+    }
+
+    .field {
+      margin: 0;
+    }
+  }
+
+  .login-container {
+    margin: 120px 30px 140px;
+  }
+
+  .pass-reset-container {
+    margin: 140px 30px 220px;
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    .actions {
+      input {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .user-edit-container {
+    width: 95%;
+    padding: 100px 20px;
+
+    h2 {
+      font-size: 2rem;
+    }
   }
 }
