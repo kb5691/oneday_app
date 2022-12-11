@@ -367,3 +367,181 @@
     }
   }
 }
+
+// レスポンシブデザイン
+// タブレット
+@media screen and (max-width: 1280px) {
+  .post-container {
+    .post-wrap {
+      padding: 30px 20px;
+    }
+  }
+
+  .post-show-container {
+    padding: 100px 45px;
+
+    .post-info-container {
+      display: block;
+
+      .post-info {
+        img {
+          width: 600px;
+        }
+      }
+
+      .radar-container {
+        width: 80%;
+        margin: 45px 0 30px;
+      }
+    }
+  }
+}
+
+// スマホ
+@media screen and (max-width: 768px) {
+  .post-form-container {
+    text-align: left;
+    margin: 0;
+    padding: 0 10px;
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    form {
+      width: 90%;
+
+      .form-group {
+        display: block;
+        width: 100%;
+
+        input {
+          width: 100%;
+        }
+
+        textarea {
+          width: 100%;
+        }
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  .post-show-container {
+    padding: 60px 20px;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .post-info-container {
+      .post-info {
+        width: 100%;
+
+        h2 {
+          font-size: 1.6rem;
+        }
+
+        img {
+          width: 100%;
+          height: 320px;
+        }
+      }
+
+      .radar-container {
+        width: 100%;
+      }
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+    }
+
+    .comment-container {
+      display: block;
+
+      .comment-user {
+        margin-bottom: 10px;
+      }
+
+      .comment-date {
+        margin-top: 5px;
+        text-align: right;
+      }
+    }
+
+    .button {
+      display: block;
+      width: 140px;
+    }
+
+    .button-comment {
+      margin-bottom: 30px;
+    }
+
+    .button-post {
+      margin-bottom: 12px;
+    }
+  }
+
+  .post-edit-container {
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    form {
+      .form-group {
+        display: block;
+        width: 100%;
+        text-align: center;
+
+        label {
+          margin: 0 0 10px;
+        }
+
+        .form-control {
+          width: 100%;
+        }
+
+        .form-control-file {
+          width: 100%;
+        }
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  .post-index-container {
+    padding: 100px 20px;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .post_search {
+      .search-form {
+        width: 70%;
+      }
+    }
+
+    .card {
+      width: 100%;
+
+      .card-img-top {
+        height: 280px;
+      }
+
+      .card-body {
+        .card-title {
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+}
