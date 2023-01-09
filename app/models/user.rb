@@ -16,7 +16,7 @@ class User < ApplicationRecord
 
   # ゲストアカウントを取得する
   def self.guest
-    find_or_create_by!(email: "guest@example.com") do |user|
+    find_or_create_by!(email: "guest@example.com", address: "東京都", go_to_area: "沖縄県", like_situation: "自然") do |user|
       user.name = "ゲスト"
       user.password = SecureRandom.urlsafe_base64
     end
