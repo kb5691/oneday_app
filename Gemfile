@@ -54,6 +54,8 @@ group :development, :test do
   gem "rubocop-rails", require: false
   # pry-byebugを導入
   gem "pry-byebug"
+  # rspecを導入
+  gem "rspec-rails"
 end
 
 group :development do
