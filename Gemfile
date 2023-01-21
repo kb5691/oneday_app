@@ -52,10 +52,14 @@ group :development, :test do
   # rubocopを導入
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
-  # pry-byebugを導入
+  # デバッグ用
   gem "pry-byebug"
+  gem "pry-doc"
   # rspecを導入
   gem "rspec-rails"
+  # テストデータ用
+  gem "factory_bot_rails"
+  gem "faker"
 end
 
 group :development do
