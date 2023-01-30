@@ -50,6 +50,7 @@ Rails/FilePath:
 Metrics/BlockLength:
   Exclude:
     - 'config/environments/development.rb'
+    - 'spec/**/*'
 
 Metrics/MethodLength:
   Exclude:
