@@ -6,12 +6,4 @@ class Like < ApplicationRecord
     scope: :post_id,
     message: :duplicated
   }
-  # 自分の投稿に「いいね」できないように設定
-  validate :forbid_to_owner
-
-  private
-
-  def forbid_to_owner
-    errors.add(:base, :owner_forbidden) if user_id == post.user_id
-  end
 end

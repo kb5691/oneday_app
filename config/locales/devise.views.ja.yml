@@ -1,4 +1,16 @@
 ja:
+  users:
+    sessions:
+      guest_sign_in:
+        notice: 'ゲストユーザーとしてログインしました'
+    registrations:
+      update:
+        alert: 'ゲストユーザーの更新はできません'
+      destroy:
+        alert: 'ゲストユーザーの削除はできません'
+    passwords:
+      create:
+        alert: 'ゲストユーザーのパスワード再設定はできません'
   activerecord:
     attributes:
       user:
@@ -26,6 +38,10 @@ ja:
         unlock_token: ロック解除用トークン
         updated_at: 更新日
         name: ユーザー名
+        profile_image: プロフィール画像
+        address: 住んでいる都道府県
+        go_to_area: 行きたい場所
+        like_situation: 好きなシチュエーション
     models:
       user: ユーザー
   devise:

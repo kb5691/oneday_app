@@ -1,0 +1,70 @@
+<div class="post-show-container">
+  <h1>スポット詳細</h1>
+  <div class="user-info">
+    <% if URI(request.referer.to_s).path != '/users' %>
+      <p class="user-name">ユーザー名：<%= link_to "#{@post.user.name}", user_profile_path(@post.user.id) %></p>
+      <%= image_tag @post.user.profile_image.url %>
+    <% end %>
+  </div>
+  <div class="post-info-container">
+    <div class="post-info">
+      <h2><%= @post.title %></h2>
+      <div class="show-box">
+        <p>おすすめポイント：<%= @post.recommend_point %></p>
+        <p>シチュエーション：<%= @post.situation %></p>
+        <p>エリア：<%= @post.area %></p>
+      </div>
+      <%# 画像がある場合は表示 %>
+      <% if @post.recommend_image? %>
+        <%= image_tag @post.recommend_image.url %>
+      <% end %>
+    </div>
+    <%# グラフ %>
+    <%= Gon::Base.render_data %>
+    <div class="base-container radar-container">
+      <canvas id="radar-chart" class="chart"></canvas>
+    </div>
+  </div>
+  <%# マップ %>
+  <div class="map-container">
+    <h3>アクセス</h3>
+    <div id="map-info" data-map-info="<%= @post.to_json %>"></div>
+    <div id="map"></div>
+  </div>
+  <%= javascript_pack_tag "map" %>
+  <script async defer
+             src="https://maps.googleapis.com/maps/api/js?v=weekly&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"></script>
+  <% if URI(request.referer.to_s).path != '/users' %>
+    <%# いいね機能 %>
+    <p id="post-<%= @post.id %>">
+      <% if @post.liked_by?(current_user) %>
+        <%= render "like", post: @post %>
+      <% else %>
+        <%= render "dislike", post: @post %>
+      <% end %>
+    </p>
+    <%# コメント機能 %>
+    <%= form_with model: [@post, @comment], local: true do |form| %>
+      <%= form.text_area :content, class: "comment-textarea" %>
+      <%= form.submit "コメントする", class: "btn btn-info" %>
+    <% end %>
+    <% @comments.each do |comment| %>
+      <div class="comment-container">
+        <p class="comment-user"><%= comment.user.name %></p>
+        <div class="comment-chat">
+          <p class="comment-content"><%= comment.content %></p>
+        </div>
+        <p class="comment-date"><%= comment.created_at.strftime('%Y/%m/%d') %></p>
+      </div>
+      <% if comment.user == current_user %>
+        <%= link_to "コメント削除", post_comment_path(comment.post, comment), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger button button-comment" %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <%# 自分の投稿の場合は編集、削除を表示 %>
+  <% if current_user.id == @post.user_id %>
+    <%= link_to "投稿編集", edit_post_path(@post), class: "btn btn-primary button button-post" %>
+    <%= link_to "投稿削除", post_path(@post), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger button button-post" %>
+  <% end %>
+  <%= link_to "戻る", :back %>
+</div>
