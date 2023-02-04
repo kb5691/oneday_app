@@ -1,0 +1,548 @@
+// index.html
+.masthead {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-size: cover;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 37%, rgba(0, 0, 0, 0.65) 100%), url(hero.jpg) no-repeat center center scroll;
+
+  >h1 {
+    font-style: normal;
+    font-weight: bold;
+    color: #fff;
+    font-size: 6vmin;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 40px;
+  }
+
+  >h2 {
+    font-style: normal;
+    font-weight: bold;
+    color: #fff;
+    font-size: 4vmin;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+}
+
+// index.html
+// _post.html.erb
+.post-index-container {
+  padding: 100px 0;
+
+  h1 {
+    text-align: center;
+  }
+
+  .post_search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0 60px;
+
+    .search-form {
+      width: 40%;
+      height: 40px;
+      margin-right: 15px;
+    }
+  }
+
+  .card {
+    margin: 0 auto 60px;
+    width: 60%;
+
+    .card-img-top {
+      width: 100%;
+      height: 360px;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+
+      p {
+        margin-right: 30px;
+        font-size: 1.2rem;
+      }
+
+      .user-image {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    .list-group-item {
+      .like-btn {
+        margin: 0;
+      }
+    }
+
+    .post-link {
+      padding: 0.75rem 1.25rem;
+
+      .button {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .pagination {
+    justify-content: center;
+
+    span {
+      margin-right: 10px;
+    }
+  }
+}
+
+// new.html.erb
+.post-form-container {
+  text-align: center;
+  margin-bottom: 80px;
+
+  h1 {
+    margin: 45px 0;
+  }
+
+  h2 {
+    padding: 30px 0;
+    font-size: 1.8rem;
+  }
+
+  form {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .form-group {
+    display: flex;
+    justify-content: right;
+    margin-bottom: 30px;
+    width: 80%;
+
+    label {
+      margin-right: 30px;
+    }
+
+    input,
+    textarea {
+      width: 50%;
+    }
+  }
+
+  .btn-container {
+    width: 60%;
+    padding: 30px 0;
+    margin: 0 auto;
+  }
+}
+
+// edit.html.erb
+.post-edit-container {
+  margin: 100px 0;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    padding: 20px 0;
+    font-size: 1.8rem;
+  }
+
+  form {
+    width: 80%;
+    margin: 0 auto;
+
+    .form-group {
+      display: flex;
+      justify-content: right;
+      margin-bottom: 30px;
+      width: 80%;
+
+      label {
+        margin-right: 30px;
+      }
+
+      input,
+      textarea {
+        width: 50%;
+      }
+    }
+  }
+
+  .btn-container {
+    width: 60%;
+    padding: 30px 0;
+    margin: 0 auto;
+  }
+}
+
+// show.html.erb
+.post-show-container {
+  padding: 100px 0;
+
+  h1 {
+    margin-bottom: 45px;
+    font-size: 2.2rem;
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+
+    .user-name {
+      font-size: 1.2rem;
+      margin-right: 45px;
+    }
+
+    img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+    }
+  }
+
+  .post-info-container {
+    display: flex;
+    margin-bottom: 30px;
+
+    .post-info {
+      width: 50%;
+
+      h2 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+      }
+
+      .show-box {
+        position: relative;
+        padding: 0.5em 0.7em;
+        margin: 0 0 1.2em;
+        background: #e6f4ff;
+        font-weight: bold;
+
+        :after {
+          position: absolute;
+          content: '';
+          top: 100%;
+          left: 30px;
+          border: 15px solid transparent;
+          border-top: 15px solid #e6f4ff;
+          width: 0;
+          height: 0;
+        }
+
+        p {
+          margin: 0;
+          padding: 0;
+        }
+      }
+
+      img {
+        max-width: 100%;
+        height: 300px;
+      }
+    }
+
+    .radar-container {
+      width: 50%;
+      padding: 0;
+    }
+  }
+
+  .map-container {
+    margin-bottom: 30px;
+
+    h3 {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+
+    #map {
+      width: 100%;
+      height: 400px;
+    }
+
+  }
+
+  form {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 20px;
+
+    .comment-textarea {
+      margin-right: 18px;
+    }
+  }
+
+  .comment-container {
+    width: 100%;
+    margin: 1.8em 0 1.5em;
+    display: flex;
+
+    .comment-user {
+      display: flex;
+      align-items: center;
+      margin-right: 30px;
+    }
+
+    .comment-chat {
+      position: relative;
+      padding: 17px 13px;
+      border-radius: 12px;
+      background: #e6f4ff;
+      margin-right: 10px;
+
+      :after {
+        content: "";
+        position: absolute;
+        top: 18px;
+        left: -24px;
+        border: 12px solid transparent;
+        border-right: 12px solid #e6f4ff;
+
+      }
+
+      p {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .comment-date {
+      margin: auto 0 5px;
+      font-size: 14px;
+    }
+  }
+
+  .button {
+    margin-right: 12px;
+  }
+}
+
+
+// マイページ投稿一覧
+.post-container {
+  margin-top: 100px;
+
+  h2 {
+    border-bottom: #a4a4a4 solid 1px;
+  }
+
+  .post-wrap {
+    margin-top: 45px;
+    padding: 30px;
+    border: #a4a4a4 solid 1px;
+    background-color: #f8f8f8;
+
+    h3 {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+
+    .post-image {
+      display: block;
+      margin: 30px 0 45px;
+      width: 400px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .btn-post {
+      display: inline-block;
+      margin-right: 8px;
+    }
+  }
+}
+
+// レスポンシブデザイン
+// タブレット
+@media screen and (max-width: 1280px) {
+  .post-container {
+    .post-wrap {
+      padding: 30px 20px;
+    }
+  }
+
+  .post-show-container {
+    padding: 100px 45px;
+
+    .post-info-container {
+      display: block;
+
+      .post-info {
+        img {
+          width: 600px;
+        }
+      }
+
+      .radar-container {
+        width: 80%;
+        margin: 45px 0 30px;
+      }
+    }
+  }
+}
+
+// スマホ
+@media screen and (max-width: 768px) {
+  .post-form-container {
+    text-align: left;
+    margin: 0;
+    padding: 0 10px;
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    form {
+      width: 90%;
+
+      .form-group {
+        display: block;
+        width: 100%;
+
+        input {
+          width: 100%;
+        }
+
+        textarea {
+          width: 100%;
+        }
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  .post-show-container {
+    padding: 60px 20px;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .post-info-container {
+      .post-info {
+        width: 100%;
+
+        h2 {
+          font-size: 1.6rem;
+        }
+
+        img {
+          width: 100%;
+          height: 320px;
+        }
+      }
+
+      .radar-container {
+        width: 100%;
+      }
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+    }
+
+    .comment-container {
+      display: block;
+
+      .comment-user {
+        margin-bottom: 10px;
+      }
+
+      .comment-date {
+        margin-top: 5px;
+        text-align: right;
+      }
+    }
+
+    .button {
+      display: block;
+      width: 140px;
+    }
+
+    .button-comment {
+      margin-bottom: 30px;
+    }
+
+    .button-post {
+      margin-bottom: 12px;
+    }
+  }
+
+  .post-edit-container {
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    form {
+      .form-group {
+        display: block;
+        width: 100%;
+        text-align: center;
+
+        label {
+          margin: 0 0 10px;
+        }
+
+        .form-control {
+          width: 100%;
+        }
+
+        .form-control-file {
+          width: 100%;
+        }
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  .post-index-container {
+    padding: 100px 20px;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .post_search {
+      .search-form {
+        width: 70%;
+      }
+    }
+
+    .card {
+      width: 100%;
+
+      .card-img-top {
+        height: 280px;
+      }
+
+      .card-body {
+        .card-title {
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+}

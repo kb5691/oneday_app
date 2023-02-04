@@ -39,3 +39,4 @@ yarn-debug.log*
 .DS_Store
 /vendor/bundle
 /public/uploads/
+.env

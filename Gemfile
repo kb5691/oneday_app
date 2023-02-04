@@ -35,6 +35,16 @@ gem "devise-i18n"
 gem "rails-i18n", "~> 6.0"
 # 画像投稿機能
 gem "carrierwave", "~> 2.0"
+gem "mini_magick"
+# chart.js
+gem "gon"
+# google map api
+gem "dotenv-rails"
+gem "geocoder"
+# ページネーション
+gem "kaminari"
+# 検索機能
+gem "ransack"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -42,8 +52,14 @@ group :development, :test do
   # rubocopを導入
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
-  # pry-byebugを導入
+  # デバッグ用
   gem "pry-byebug"
+  gem "pry-doc"
+  # rspecを導入
+  gem "rspec-rails"
+  # テストデータ用
+  gem "factory_bot_rails"
+  gem "faker"
 end
 
 group :development do

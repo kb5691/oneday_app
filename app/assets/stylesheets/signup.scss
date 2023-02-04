@@ -1,0 +1,155 @@
+// 新規登録、ログイン画面
+.login-container,
+.sign-up-container {
+  text-align: center;
+  margin: 120px 400px 180px;
+  padding: 60px 0;
+  border: 1px #a4a4a4 solid;
+
+  >h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+}
+
+// パスワードリセット画面
+.pass-reset-container {
+  text-align: center;
+  margin: 160px 400px 220px;
+  padding: 80px 0;
+  border: 1px #a4a4a4 solid;
+
+  >h2 {
+    margin-bottom: 30px;
+  }
+}
+
+.field {
+  margin-bottom: 16px;
+
+  label {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+
+  input {
+    margin-bottom: 10px;
+  }
+}
+
+.actions {
+  padding: 10px 0;
+  margin-bottom: 30px;
+
+  input {
+    font-size: 1.1rem;
+  }
+}
+
+// ユーザー編集画面
+.user-edit-container {
+  padding: 100px 0;
+  margin: 100px auto;
+  width: 80%;
+  text-align: center;
+  border: 1px #a4a4a4 solid;
+
+  >h2 {
+    font-size: 2.2rem;
+    margin-bottom: 45px;
+  }
+
+  .field {
+    margin-bottom: 30px;
+
+    label {
+      font-size: 1.2rem;
+      margin-bottom: 14px;
+    }
+
+    input {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+// エラー
+#error_explanation {
+  ul {
+    padding: 0 30px;
+  }
+
+  li {
+    list-style: none;
+    margin-bottom: 15px;
+  }
+}
+
+// レスポンシブデザイン
+// タブレット
+@media screen and (max-width: 1280px) {
+
+  .login-container,
+  .sign-up-container {
+    margin: 120px 160px 180px;
+  }
+
+  .field {
+    label {
+      margin-bottom: 10px;
+    }
+  }
+
+  .pass-reset-container {
+    margin: 140px 140px 260px;
+    padding: 100px 0;
+  }
+
+  .user-edit-container {
+    padding: 100px 30px;
+  }
+}
+
+// スマホ
+@media screen and (max-width: 768px) {
+
+  .sign-up-container {
+    margin: 100px 40px 120px;
+    padding: 120px 0;
+
+    h2 {
+      font-size: 2.2rem;
+    }
+
+    .field {
+      margin: 0;
+    }
+  }
+
+  .login-container {
+    margin: 120px 30px 140px;
+  }
+
+  .pass-reset-container {
+    margin: 140px 30px 220px;
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    .actions {
+      input {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .user-edit-container {
+    width: 95%;
+    padding: 100px 20px;
+
+    h2 {
+      font-size: 2rem;
+    }
+  }
+}

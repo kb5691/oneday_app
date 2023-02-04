@@ -1,0 +1,70 @@
+.user-container {
+  margin: 100px auto;
+  width: 60%;
+
+  h1 {
+    margin-bottom: 30px;
+    border-bottom: #a4a4a4 solid 1px;
+  }
+
+  .user-name-image {
+    display: flex;
+    margin: 50px 0 15px;
+    align-items: center;
+
+    >p {
+      font-size: 1.6rem;
+      margin: 0 20px 0 0;
+    }
+
+    img {
+      width: 80px;
+    }
+  }
+
+  table {
+    width: 80%;
+
+    td,
+    th {
+      border: 1px solid #a4a4a4;
+      padding: 8px;
+      width: 45px;
+      height: 50px;
+    }
+  }
+}
+
+// レスポンシブデザイン
+// タブレット
+@media screen and (max-width: 1280px) {
+  .user-container {
+    margin: 120px auto;
+  }
+}
+
+// スマホ
+@media screen and (max-width: 768px) {
+  .user-container {
+    width: 90%;
+
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    .post-wrap {
+      .post-image {
+        width: 260px;
+        height: 200px;
+      }
+    }
+  }
+}
