@@ -35,6 +35,7 @@ gem "devise-i18n"
 gem "rails-i18n", "~> 6.0"
 # 画像投稿機能
 gem "carrierwave", "~> 2.0"
+gem "fog-aws"
 gem "mini_magick"
 # chart.js
 gem "gon"
