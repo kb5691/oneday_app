@@ -34,31 +34,29 @@
   <%= javascript_pack_tag "map" %>
   <script async defer
              src="https://maps.googleapis.com/maps/api/js?v=weekly&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap"></script>
-  <% if URI(request.referer.to_s).path != '/users' %>
-    <%# いいね機能 %>
-    <p id="post-<%= @post.id %>">
-      <% if @post.liked_by?(current_user) %>
-        <%= render "like", post: @post %>
-      <% else %>
-        <%= render "dislike", post: @post %>
-      <% end %>
-    </p>
-    <%# コメント機能 %>
-    <%= form_with model: [@post, @comment], local: true do |form| %>
-      <%= form.text_area :content, class: "comment-textarea" %>
-      <%= form.submit "コメントする", class: "btn btn-info" %>
+  <%# いいね機能 %>
+  <p id="post-<%= @post.id %>">
+    <% if @post.liked_by?(current_user) %>
+      <%= render "like", post: @post %>
+    <% else %>
+      <%= render "dislike", post: @post %>
     <% end %>
-    <% @comments.each do |comment| %>
-      <div class="comment-container">
-        <p class="comment-user"><%= comment.user.name %></p>
-        <div class="comment-chat">
-          <p class="comment-content"><%= comment.content %></p>
-        </div>
-        <p class="comment-date"><%= comment.created_at.strftime('%Y/%m/%d') %></p>
+  </p>
+  <%# コメント機能 %>
+  <%= form_with model: [@post, @comment], local: true do |form| %>
+    <%= form.text_area :content, class: "comment-textarea" %>
+    <%= form.submit "コメントする", class: "btn btn-info" %>
+  <% end %>
+  <% @comments.each do |comment| %>
+    <div class="comment-container">
+      <p class="comment-user"><%= comment.user.name %></p>
+      <div class="comment-chat">
+        <p class="comment-content"><%= comment.content %></p>
       </div>
-      <% if comment.user == current_user %>
-        <%= link_to "コメント削除", post_comment_path(comment.post, comment), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger button button-comment" %>
-      <% end %>
+      <p class="comment-date"><%= comment.created_at.strftime('%Y/%m/%d') %></p>
+    </div>
+    <% if comment.user == current_user %>
+      <%= link_to "コメント削除", post_comment_path(comment.post, comment), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger button button-comment" %>
     <% end %>
   <% end %>
   <%# 自分の投稿の場合は編集、削除を表示 %>
