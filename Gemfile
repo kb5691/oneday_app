@@ -74,6 +74,12 @@ group :development do
   gem "spring"
   # commit時に rubocop を実行
   gem "pre-commit", require: false
+  # AWS EC2デプロイ
+  gem "capistrano", "~> 3.10", require: false
+  gem "capistrano3-puma"
+  gem "capistrano-rails", "~> 1.6", require: false
+  gem "capistrano-rbenv", "~> 2.2"
+  gem "capistrano-rbenv-vars", "~> 0.1"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
