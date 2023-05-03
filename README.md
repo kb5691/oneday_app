@@ -10,7 +10,7 @@
 - 1 人で楽しめるスポットを登録して、評価やおすすめポイントなどを共有することができます。
 - 他の人の投稿にコメントやいいねができ、おすすめスポットを通して交流することができます。
 
-![](https://storage.googleapis.com/zenn-user-upload/1fe8464cd02c-20230219.gif)
+<img src="https://storage.googleapis.com/zenn-user-upload/1fe8464cd02c-20230219.gif" width="100%" />
 
 ## 開発背景
 
@@ -74,21 +74,21 @@
 タイトル、シチュエーション、エリアでおすすめスポットを検索することができます。
 検索は部分一致検索で行います。
 
-![](https://storage.googleapis.com/zenn-user-upload/0624fe92aef2-20230305.gif)
+<img src="https://storage.googleapis.com/zenn-user-upload/0624fe92aef2-20230305.gif" width="100%" />
 
 ### おすすめスポット詳細
 
 おすすめスポットについてのおすすめポイントや評価、地図を確認することができます。
 気になった投稿にはいいねやコメントを投稿することも可能です。
 
-![](https://storage.googleapis.com/zenn-user-upload/ec755c2d5d03-20230305.gif)
+<img src="https://storage.googleapis.com/zenn-user-upload/ec755c2d5d03-20230305.gif" width="100%" />
 
 ### マイページ
 
 アカウント情報の編集やアカウントの削除が行えます。
 投稿一覧では投稿の編集、削除が行えます。
 
-![](https://storage.googleapis.com/zenn-user-upload/b5e0c30001b7-20230305.gif)
+<img src="https://storage.googleapis.com/zenn-user-upload/b5e0c30001b7-20230305.gif" width="100%" />
 
 ## 工夫した点
 
