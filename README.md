@@ -2,8 +2,8 @@
 
 ![](https://storage.googleapis.com/zenn-user-upload/58a37b656f28-20230211.jpg)
 
-- アプリ : https://github.com/kb5691/oneday_app
-- スマホ対応載せる
+- アプリ : https://oneday-app.com/
+- Zenn : https://zenn.dev/kaito_o/articles/9071d09e1454ba
 
 ## アプリ概要
 
@@ -49,6 +49,10 @@
 ### ER 図
 
 ![](https://storage.googleapis.com/zenn-user-upload/33933c5ee68c-20230224.png)
+
+### インフラ構成図
+
+![](https://storage.googleapis.com/zenn-user-upload/c9a1af6a61ce-20230503.png)
 
 ## 機能一覧
 
