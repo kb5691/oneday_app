@@ -2,8 +2,8 @@
 
 ![](https://storage.googleapis.com/zenn-user-upload/58a37b656f28-20230211.jpg)
 
-- アプリ : ~~https://oneday-app.com/~~ → https://oneday-app-web.onrender.com/
-  - AWS から Render へ移行しました
+- アプリ : ~~https://oneday-app.com/~~
+  - AWS の料金の都合上、 現在停止しています
 - Zenn : https://zenn.dev/kaito_o/articles/9071d09e1454ba
 
 ## アプリ概要
