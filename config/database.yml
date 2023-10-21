@@ -81,7 +81,12 @@ test:
 #
 production:
   <<: *default
-  database: aws_oneday_app_production
-  username: postgres
-  password: <%= Rails.application.credentials.db[:password] %>
-  host: <%= Rails.application.credentials.db[:hostname] %>
+  # AWS
+  # database: aws_oneday_app_production
+  # username: postgres
+  # password: <%= Rails.application.credentials.db[:password] %>
+  # host: <%= Rails.application.credentials.db[:hostname] %>
+  # herokuデプロイ
+  adapter: postgresql
+  encoding: unicode
+  pool: 5

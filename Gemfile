@@ -61,6 +61,8 @@ group :development, :test do
   # テストデータ用
   gem "factory_bot_rails"
   gem "faker"
+  # herokuデプロイ
+  gem "sqlite3"
 end
 
 group :development do
