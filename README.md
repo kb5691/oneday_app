@@ -3,8 +3,7 @@
 ![](https://storage.googleapis.com/zenn-user-upload/58a37b656f28-20230211.jpg)
 
 - アプリ : ~~https://oneday-app.com/~~
-  - https://oneday-app-74618a6d6db9.herokuapp.com/
-    - 料金の都合上、 Heroku でデプロイしています。
+  - 料金の都合上、 停止しています。
 - Zenn : https://zenn.dev/kaito_o/articles/9071d09e1454ba
 
 ## アプリ概要
