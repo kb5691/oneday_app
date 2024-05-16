@@ -4,7 +4,6 @@
 
 - アプリ : ~~https://oneday-app.com/~~
   - 料金の都合上、 停止しています。
-- Zenn : https://zenn.dev/kaito_o/articles/9071d09e1454ba
 
 ## アプリ概要
 
